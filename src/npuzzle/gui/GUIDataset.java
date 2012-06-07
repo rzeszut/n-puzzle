@@ -50,4 +50,9 @@ public class GUIDataset {
     public LinkedList<Double> getAvgFit() {
         return avg_fit;
     }
+    
+    @Override
+    public String toString() {
+        return min_fit.toString() + " " + avg_fit.toString() + " " + max_fit.toString() + "\n";
+    }
 }

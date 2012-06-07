@@ -193,7 +193,7 @@ public class GUINPuzzle extends javax.swing.JFrame {
         int[][] arr = {{0, 1, 2}, {4, 6, 3}, {7, 5, 8}};
         int[][] arr1 = {{1, 2, 5}, {7, 8, 3}, {0, 4, 6}};
         int[][] arr2 = {{8, 7, 6}, {5, 4, 3}, {2, 1, 0}};
-        NPuzzle begginning_state = new NPuzzle(3, arr2);
+        NPuzzle begginning_state = new NPuzzle(3, arr);
         //NPuzzle begginning_state = NPuzzle.createRandomPuzzle(3);
         Configuration conf = new Configuration(new TestFitnessFunction(
                 begginning_state), gfunc);
@@ -208,7 +208,7 @@ public class GUINPuzzle extends javax.swing.JFrame {
         
         List<Chromosome> population = null;
         try {
-            GeneticAlgorithm alg = new GARanking();
+            GeneticAlgorithm alg = new GARouletteElitism();
             population = alg.solveProblem(conf, dfunc);
         } catch (SolutionFound e) {
             System.out.format(
@@ -219,7 +219,6 @@ public class GUINPuzzle extends javax.swing.JFrame {
                 System.out.format("%s ", Decoder.geneToString(g));
             }
             System.out.println();
-            System.exit(0);
         }
 
         Comparator<Chromosome> comp = new Comparator<Chromosome>() {
@@ -236,13 +235,13 @@ public class GUINPuzzle extends javax.swing.JFrame {
             }
         };
 
-        Chromosome best_fit = Collections.max(population, comp);
-        System.out.println("Najlepsze znalezione rozwiązanie:");
-        for (Integer g : best_fit.getGenes()) {
-            System.out.format("%s ", Decoder.geneToString(g));
-        }
-        System.out.println();
-        Decoder.applyGenes(begginning_state, best_fit.getGenes()).print();
+//        Chromosome best_fit = Collections.max(population, comp);
+//        System.out.println("Najlepsze znalezione rozwiązanie:");
+//        for (Integer g : best_fit.getGenes()) {
+//            System.out.format("%s ", Decoder.geneToString(g));
+//        }
+//        System.out.println();
+//        Decoder.applyGenes(begginning_state, best_fit.getGenes()).print();
         new GUIChart(dfunc.getDataset()).setVisible(true);
     }//GEN-LAST:event_GUIStartMouseClicked
 
