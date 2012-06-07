@@ -235,13 +235,13 @@ public class GUINPuzzle extends javax.swing.JFrame {
             }
         };
 
-//        Chromosome best_fit = Collections.max(population, comp);
-//        System.out.println("Najlepsze znalezione rozwiązanie:");
-//        for (Integer g : best_fit.getGenes()) {
-//            System.out.format("%s ", Decoder.geneToString(g));
-//        }
-//        System.out.println();
-//        Decoder.applyGenes(begginning_state, best_fit.getGenes()).print();
+        Chromosome best_fit = Collections.max(population, comp);
+        System.out.println("Najlepsze znalezione rozwiązanie:");
+        for (Integer g : best_fit.getGenes()) {
+            System.out.format("%s ", Decoder.geneToString(g));
+        }
+        System.out.println();
+        Decoder.applyGenes(begginning_state, best_fit.getGenes()).print();
         new GUIChart(dfunc.getDataset()).setVisible(true);
     }//GEN-LAST:event_GUIStartMouseClicked
 
