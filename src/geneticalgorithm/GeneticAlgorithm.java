@@ -64,7 +64,8 @@ public abstract class GeneticAlgorithm {
             
             try {
                 if (terminated == true) {
-                    throw new SolutionFound(population.get(0));
+//                    throw new SolutionFound(population.get(0));
+                    return population.get(0);
                 }
                 population = iterate(population);
             } catch (SolutionFound exc) {

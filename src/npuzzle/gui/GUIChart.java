@@ -19,7 +19,6 @@ public class GUIChart extends javax.swing.JFrame implements Runnable {
     Configuration config;
     NPuzzle begginning_state;
     GUIDispFunction dfunc;
-    List<Chromosome> population;
     GeneticAlgorithm gen_alg;
     Thread thread;
 
@@ -31,13 +30,13 @@ public class GUIChart extends javax.swing.JFrame implements Runnable {
         begginning_state = bs;
         gen_alg = alg;
         
-        dfunc = new GUIDispFunction(this);
-        
         initComponents();
+        
+        dfunc = new GUIDispFunction(this);
         ((GUIPuzzlePanel) jPuzzlePanel).disablePanel();
     }
 
-public void run() {
+    public void run() {
         gen_alg.addObserver(dfunc);
         Chromosome best_fit = gen_alg.solveProblem(config);
 

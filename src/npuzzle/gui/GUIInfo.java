@@ -32,6 +32,15 @@ public class GUIInfo extends javax.swing.JPanel {
         jCrossoverRate.setText("" + conf.getCrossoverRate());
         jMutationRate.setText("" + conf.getMutationRate());
     }
+    
+    /**
+     * Ustawia ilość iteracji widoczną na panelu na podaną w parametrze.
+     * 
+     * @param i ilość iteracji
+     */
+    public void setIterations(int i) {
+        jIterations.setText(Integer.toString(i));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
