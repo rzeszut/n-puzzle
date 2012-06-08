@@ -12,7 +12,7 @@ import java.util.List;
  * @author mateusz
  */
 public class Decoder {
-    private static Coords decodeGene(int gene) {
+    public static Coords decodeGene(int gene) {
         switch (gene) {
         case 1: // lewo
             return new Coords(0, -1);

@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author M-Art
  */
-public class GUIDispFunction implements DispFunction {
+public class GUIDispFunction implements Observer {
     private GUIDataset dataset;
     public GUIDispFunction() {
         dataset = new GUIDataset();

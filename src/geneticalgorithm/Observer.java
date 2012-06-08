@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author mateusz
  */
-public interface DispFunction {
+public interface Observer {
     /**
      * Metoda robi "coś" z aktualną populacją, np. rysuje fragment wykresu.
      * 

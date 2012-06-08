@@ -209,7 +209,8 @@ public class GUINPuzzle extends javax.swing.JFrame {
         List<Chromosome> population = null;
         try {
             GeneticAlgorithm alg = new GARouletteElitism();
-            population = alg.solveProblem(conf, dfunc);
+            alg.addObserver(dfunc);
+            population = alg.solveProblem(conf);
         } catch (SolutionFound e) {
             System.out.format(
                     "Znaleziono idealne rozwiązanie w %d iteracji.\n",

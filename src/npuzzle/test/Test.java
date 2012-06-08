@@ -5,7 +5,7 @@ package npuzzle.test;
 
 import geneticalgorithm.Chromosome;
 import geneticalgorithm.Configuration;
-import geneticalgorithm.DispFunction;
+import geneticalgorithm.Observer;
 import geneticalgorithm.GARouletteElitism;
 import geneticalgorithm.GeneFunctions;
 import geneticalgorithm.GeneticAlgorithm;
@@ -68,7 +68,7 @@ public class Test {
 
         try {
             GeneticAlgorithm alg = new GARouletteElitism();
-            population = alg.solveProblem(conf, new DispFunction() {
+            alg.addObserver(new Observer() {
 
                 @Override
                 public void call(List<Chromosome> population, int iteration) {
@@ -106,6 +106,7 @@ public class Test {
                                     iteration, min_fit, avg_fit, max_fit);
                 }
             });
+            population = alg.solveProblem(conf);
         } catch (SolutionFound e) {
             System.out.format(
                     "Znaleziono idealne rozwiązanie w %d iteracji.\n",
