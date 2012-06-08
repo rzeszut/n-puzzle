@@ -14,14 +14,16 @@ import java.util.List;
  * @author M-Art
  */
 public class GUIDispFunction implements Observer {
-    private GUIDataset dataset;
-    public GUIDispFunction() {
-        dataset = new GUIDataset();
-        System.out.print("ala");
+
+    private GUIChart chart_panel;
+
+    public GUIDispFunction(GUIChart cp) {
+        chart_panel = cp;
     }
-    
+
     @Override
     public void call(List<Chromosome> population, int iteration) {
+
         Comparator<Chromosome> comp = new Comparator<Chromosome>() {
 
             @Override
@@ -44,13 +46,9 @@ public class GUIDispFunction implements Observer {
             avg_fit += c.getFitness();
         }
         avg_fit = avg_fit / (double) population.size();
-        
-        dataset.add(min_fit, max_fit, avg_fit);
-        
+
+        chart_panel.updateChartPanel(min_fit, avg_fit, max_fit);
+
         //System.out.format("%d. min-fitness: %f; avg-fitness: %f; max-fitness: %f\n", iteration, min_fit, avg_fit, max_fit);
-    }
-    
-    public GUIDataset getDataset() {
-        return dataset;
     }
 }

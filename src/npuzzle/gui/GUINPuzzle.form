@@ -28,73 +28,80 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="GUIChromosomeLenght" alignment="0" pref="66" max="32767" attributes="0"/>
-                          <Component id="GUIIterations" alignment="0" max="32767" attributes="0"/>
-                          <Component id="GUIPopulationSize" alignment="0" max="32767" attributes="0"/>
-                          <Component id="GUICrossoverRate" alignment="0" max="32767" attributes="0"/>
-                          <Component id="GUIMutationRate" alignment="0" max="32767" attributes="0"/>
-                          <Component id="GUIPuzzleSize" max="32767" attributes="0"/>
+                          <Component id="jPuzzleSize" max="32767" attributes="0"/>
+                          <Component id="jPuzzleMixNum" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jChromosomeLenght" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jIterations" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPopulationSize" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jCrossoverRate" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jMutationRate" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jGABox" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="GUIStart" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jStartButton" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="GUIPuzzleSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="GUIChromosomeLenght" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="GUIIterations" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="GUIPopulationSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="GUICrossoverRate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="GUIMutationRate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="GUIStart" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="99" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jGABox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPuzzleSize" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPuzzleMixNum" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jChromosomeLenght" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jIterations" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPopulationSize" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCrossoverRate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jMutationRate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jStartButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,61 +137,78 @@
         <Property name="text" type="java.lang.String" value="Szansa mutacji:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSpinner" name="GUIPuzzleSize">
+    <Component class="javax.swing.JSpinner" name="jPuzzleSize">
       <Properties>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="GUIPuzzleSize.setModel(new javax.swing.SpinnerNumberModel(4, 3, 10, 1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jPuzzleSize.setModel(new javax.swing.SpinnerNumberModel(4, 3, 10, 1));"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="GUIChromosomeLenght">
+    <Component class="javax.swing.JSpinner" name="jChromosomeLenght">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="GUIChromosomeLenght.setModel(new javax.swing.SpinnerNumberModel(20, 8, 30, 1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jChromosomeLenght.setModel(new javax.swing.SpinnerNumberModel(40, 8, 120, 1));"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="GUIIterations">
+    <Component class="javax.swing.JSpinner" name="jIterations">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="GUIIterations.setModel(new javax.swing.SpinnerNumberModel(50, 10, 100000, 1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jIterations.setModel(new javax.swing.SpinnerNumberModel(500, 10, 1000000000, 1));"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="GUIPopulationSize">
+    <Component class="javax.swing.JSpinner" name="jPopulationSize">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="GUIPopulationSize.setModel(new javax.swing.SpinnerNumberModel(50, 8, 100, 1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jPopulationSize.setModel(new javax.swing.SpinnerNumberModel(200, 8, 1000, 1));"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="GUICrossoverRate">
+    <Component class="javax.swing.JSpinner" name="jCrossoverRate">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="GUICrossoverRate.setModel(new javax.swing.SpinnerNumberModel(0.5, 0, 1, 0.1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jCrossoverRate.setModel(new javax.swing.SpinnerNumberModel(0.2, 0, 1, 0.1));"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="GUIMutationRate">
+    <Component class="javax.swing.JSpinner" name="jMutationRate">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="GUIMutationRate.setModel(new javax.swing.SpinnerNumberModel(0.1, 0, 1, 0.1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jMutationRate.setModel(new javax.swing.SpinnerNumberModel(0.6, 0, 1, 0.1));"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="GUIStart">
+    <Component class="javax.swing.JButton" name="jStartButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rozpocznij ruchanie"/>
+        <Property name="text" type="java.lang.String" value="Rozpocznij szukanie rozwi&#x105;zania"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="GUIStartMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jStartButtonMouseClicked"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="181" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stopie&#x144; skomplikowania:"/>
+        <Property name="toolTipText" type="java.lang.String" value="Liczba losowych ruch&#xf3;w przy mieszaniu puzzli."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jPuzzleMixNum">
+      <Properties>
+        <Property name="requestFocusEnabled" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jPuzzleMixNum.setModel(new javax.swing.SpinnerNumberModel(30, 5, 120, 1));"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rodzaj algorytmu:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jGABox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Roulette Elitism"/>
+            <StringItem index="1" value="Roulette Wheel"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jGABoxActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

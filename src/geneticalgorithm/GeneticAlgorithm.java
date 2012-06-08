@@ -1,5 +1,7 @@
 package geneticalgorithm;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,8 +53,7 @@ public abstract class GeneticAlgorithm {
      *            np. wypisywać coś na ekran.
      * @return ostanie pokolenie, po wszystkich iteracjach
      */
-    public List<Chromosome> solveProblem(Configuration setup)
-            throws SolutionFound {
+    public Chromosome solveProblem(Configuration setup) {
         List<Chromosome> population = createStartPopulation(setup);
 
         for (int i = 0; i < setup.getIterations(); ++i) {
@@ -62,18 +63,37 @@ public abstract class GeneticAlgorithm {
             }
             
             try {
+                if (terminated == true) {
+                    throw new SolutionFound(population.get(0));
+                }
                 population = iterate(population);
             } catch (SolutionFound exc) {
-                exc.setIterations(i);
-                throw exc;
+                return exc.getSolution();
             }
         }
         // wywoluje func na ostatniej populacji
-        for (Observer o : observers) {
+        for (Observer o : observers) {  
             o.call(population, setup.getIterations());
         }
 
-        return population;
+        return Collections.max(population, new Comparator<Chromosome>() {
+
+            @Override
+            public int compare(Chromosome t, Chromosome t1) {
+                if (t.getFitness() < t1.getFitness()) {
+                    return -1;
+                } else if (t.getFitness() == t1.getFitness()) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            }
+            
+        });
+    }
+    
+    public void terminate() {
+        terminated = true;
     }
     
     /**
@@ -86,4 +106,5 @@ public abstract class GeneticAlgorithm {
     }
     
     private LinkedList<Observer> observers = new LinkedList<Observer>();
+    private boolean terminated = false;
 }

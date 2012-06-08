@@ -3,19 +3,11 @@
  */
 package npuzzle.test;
 
-import geneticalgorithm.Chromosome;
-import geneticalgorithm.Configuration;
-import geneticalgorithm.Observer;
-import geneticalgorithm.GARouletteElitism;
-import geneticalgorithm.GeneFunctions;
-import geneticalgorithm.GeneticAlgorithm;
-import geneticalgorithm.SolutionFound;
-
+import geneticalgorithm.*;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-
 import npuzzle.Decoder;
 import npuzzle.NPuzzle;
 import npuzzle.TestFitnessFunction;
@@ -66,74 +58,58 @@ public class Test {
         begginning_state.print();
         List<Chromosome> population = null;
 
-        try {
-            GeneticAlgorithm alg = new GARouletteElitism();
-            alg.addObserver(new Observer() {
-
-                @Override
-                public void call(List<Chromosome> population, int iteration) {
-                    if (iteration % 100 != 0) {
-                        return;
-                    }
-
-                    Comparator<Chromosome> comp = new Comparator<Chromosome>() {
-
-                        @Override
-                        public int compare(Chromosome o1, Chromosome o2) {
-                            if (o1.getFitness() < o2.getFitness()) {
-                                return -1;
-                            } else if (o1.getFitness() == o2.getFitness()) {
-                                return 0;
-                            } else {
-                                return 1;
-                            }
-                        }
-                    };
-
-                    double max_fit = Collections.max(population, comp)
-                            .getFitness();
-                    double min_fit = Collections.min(population, comp)
-                            .getFitness();
-
-                    double avg_fit = 0;
-                    for (Chromosome c : population) {
-                        avg_fit += c.getFitness();
-                    }
-                    avg_fit = avg_fit / (double) population.size();
-
-                    System.out
-                            .format("%d. min-fitness: %f; avg-fitness: %f; max-fitness: %f\n",
-                                    iteration, min_fit, avg_fit, max_fit);
-                }
-            });
-            population = alg.solveProblem(conf);
-        } catch (SolutionFound e) {
-            System.out.format(
-                    "Znaleziono idealne rozwiązanie w %d iteracji.\n",
-                    e.getIterations());
-            System.out.println("Rozwiązanie:");
-            for (Integer g : e.getSolution().getGenes()) {
-                System.out.format("%s ", Decoder.geneToString(g));
-            }
-            System.out.println();
-            System.exit(0);
-        }
-
-        Comparator<Chromosome> comp = new Comparator<Chromosome>() {
+        GeneticAlgorithm alg = new GARouletteElitism();
+        alg.addObserver(new Observer() {
 
             @Override
-            public int compare(Chromosome o1, Chromosome o2) {
-                if (o1.getFitness() < o2.getFitness()) {
-                    return -1;
-                } else if (o1.getFitness() == o2.getFitness()) {
-                    return 0;
-                } else {
-                    return 1;
+            public void call(List<Chromosome> population, int iteration) {
+                if (iteration % 100 != 0) {
+                    return;
                 }
-            }
-        };
 
-        Chromosome best_fit = Collections.max(population, comp);
+                Comparator<Chromosome> comp = new Comparator<Chromosome>() {
+
+                    @Override
+                    public int compare(Chromosome o1, Chromosome o2) {
+                        if (o1.getFitness() < o2.getFitness()) {
+                            return -1;
+                        } else if (o1.getFitness() == o2.getFitness()) {
+                            return 0;
+                        } else {
+                            return 1;
+                        }
+                    }
+                };
+
+                double max_fit = Collections.max(population, comp)
+                        .getFitness();
+                double min_fit = Collections.min(population, comp)
+                        .getFitness();
+
+                double avg_fit = 0;
+                for (Chromosome c : population) {
+                    avg_fit += c.getFitness();
+                }
+                avg_fit = avg_fit / (double) population.size();
+
+                System.out
+                        .format("%d. min-fitness: %f; avg-fitness: %f; max-fitness: %f\n",
+                                iteration, min_fit, avg_fit, max_fit);
+            }
+        });
+        Chromosome best_fit = alg.solveProblem(conf);
+
+//            System.out.format(
+//                    "Znaleziono idealne rozwiązanie w %d iteracji.\n",
+//                    e.getIterations());
+//            System.out.println("Rozwiązanie:");
+//            for (Integer g : e.getSolution().getGenes()) {
+//                System.out.format("%s ", Decoder.geneToString(g));
+//            }
+//            System.out.println();
+//            System.exit(0);
+
+
         System.out.println("Najlepsze znalezione rozwiązanie:");
         for (Integer g : best_fit.getGenes()) {
             System.out.format("%s ", Decoder.geneToString(g));

@@ -4,57 +4,50 @@
  */
 package npuzzle.gui;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import geneticalgorithm.Chromosome;
+import geneticalgorithm.Configuration;
+import geneticalgorithm.GeneticAlgorithm;
+import java.util.List;
+import npuzzle.NPuzzle;
 
 /**
  *
  * @author M-Art
  */
-public class GUIChart extends javax.swing.JFrame {
-    private GUIDataset dataset;
-    private ChartPanel chpanel;
+public class GUIChart extends javax.swing.JFrame implements Runnable {
+
+    Configuration config;
+    NPuzzle begginning_state;
+    GUIDispFunction dfunc;
+    List<Chromosome> population;
+    GeneticAlgorithm gen_alg;
+    Thread thread;
+
     /**
      * Creates new form GUIChart
      */
-    public GUIChart(GUIDataset ds) {
-        dataset = ds;
-        initComponents();
+    public GUIChart(Configuration conf, NPuzzle bs, GeneticAlgorithm alg) {
+        config = conf;
+        begginning_state = bs;
+        gen_alg = alg;
         
-        //----
-        XYSeries min_series = new XYSeries("min-fit");
-        int i = 0;
-        for (double x : dataset.getMinFit()) {
-            min_series.add(++i, x);
-        }
+        dfunc = new GUIDispFunction(this);
+        
+        initComponents();
+        ((GUIPuzzlePanel) jPuzzlePanel).disablePanel();
+    }
 
-        XYSeries max_series = new XYSeries("max-fit");
-        i = 0;
-        for (double x : dataset.getMaxFit()) {
-            max_series.add(++i, x);
-        }
-        XYSeries avg_series = new XYSeries("avg-fit");
-        i = 0;
-        for (double x : dataset.getAvgFit()) {
-            avg_series.add(++i, x);
-        }
+public void run() {
+        gen_alg.addObserver(dfunc);
+        Chromosome best_fit = gen_alg.solveProblem(config);
 
-        XYSeriesCollection series = new XYSeriesCollection();
-        series.addSeries(min_series);
-        series.addSeries(max_series);
-        series.addSeries(avg_series);
+        ((GUIPuzzlePanel)jPuzzlePanel).activePanel(best_fit);
+        
+        //System.out.format("%d %d %d", dfunc.getDataset().getMinFit().size(), dfunc.getDataset().getAvgFit().size(), dfunc.getDataset().getMaxFit().size());
+    }
 
-        JFreeChart chart = ChartFactory.createXYLineChart(null, null, null, series, PlotOrientation.VERTICAL, false, false, false);
-        chpanel = new ChartPanel(chart);
-        chpanel.setBounds(0, 0, jChartPanel.getSize().width, jChartPanel.getSize().height);
-        chpanel.setVisible(true);
-        jChartPanel.add(chpanel);
-        jChartPanel.repaint();
-        //---
+    public void updateChartPanel(double min, double avg, double max) {
+        ((GUIGraphPanel) jGraphPanel).updateChart(min, avg, max);
     }
 
     /**
@@ -66,45 +59,103 @@ public class GUIChart extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jChartPanel = new javax.swing.JPanel();
+        jGraphPanel = new npuzzle.gui.GUIGraphPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPuzzlePanel = new GUIPuzzlePanel(begginning_state, config);
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel1 = new GUIInfo(config, gen_alg, begginning_state.getDimension());
 
-        jChartPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentResized(java.awt.event.ComponentEvent evt) {
-                jChartPanelComponentResized(evt);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
-        javax.swing.GroupLayout jChartPanelLayout = new javax.swing.GroupLayout(jChartPanel);
-        jChartPanel.setLayout(jChartPanelLayout);
-        jChartPanelLayout.setHorizontalGroup(
-            jChartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+        javax.swing.GroupLayout jGraphPanelLayout = new javax.swing.GroupLayout(jGraphPanel);
+        jGraphPanel.setLayout(jGraphPanelLayout);
+        jGraphPanelLayout.setHorizontalGroup(
+            jGraphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 387, Short.MAX_VALUE)
         );
-        jChartPanelLayout.setVerticalGroup(
-            jChartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 311, Short.MAX_VALUE)
+        jGraphPanelLayout.setVerticalGroup(
+            jGraphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 459, Short.MAX_VALUE)
         );
+
+        javax.swing.GroupLayout jPuzzlePanelLayout = new javax.swing.GroupLayout(jPuzzlePanel);
+        jPuzzlePanel.setLayout(jPuzzlePanelLayout);
+        jPuzzlePanelLayout.setHorizontalGroup(
+            jPuzzlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 297, Short.MAX_VALUE)
+        );
+        jPuzzlePanelLayout.setVerticalGroup(
+            jPuzzlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 266, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(jPuzzlePanel);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 295, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 206, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jGraphPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jGraphPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jChartPanelComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jChartPanelComponentResized
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        chpanel.setBounds(0, 0, jChartPanel.getSize().width, jChartPanel.getSize().height);
-    }//GEN-LAST:event_jChartPanelComponentResized
+    }//GEN-LAST:event_formWindowClosed
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        gen_alg.terminate();
+    }//GEN-LAST:event_formWindowClosing
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jChartPanel;
+    private javax.swing.JPanel jGraphPanel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPuzzlePanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
