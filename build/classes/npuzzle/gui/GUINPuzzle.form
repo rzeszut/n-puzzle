@@ -152,7 +152,7 @@
     </Component>
     <Component class="javax.swing.JSpinner" name="jIterations">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jIterations.setModel(new javax.swing.SpinnerNumberModel(500, 10, 1000000000, 1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jIterations.setModel(new javax.swing.SpinnerNumberModel(50000, 10, 1000000000, 1));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JSpinner" name="jPopulationSize">
@@ -167,7 +167,7 @@
     </Component>
     <Component class="javax.swing.JSpinner" name="jMutationRate">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jMutationRate.setModel(new javax.swing.SpinnerNumberModel(0.6, 0, 1, 0.1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jMutationRate.setModel(new javax.swing.SpinnerNumberModel(0.7, 0, 1, 0.1));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jStartButton">
