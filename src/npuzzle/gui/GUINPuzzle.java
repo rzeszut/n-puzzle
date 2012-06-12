@@ -158,13 +158,13 @@ public class GUINPuzzle extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPuzzleSize.setModel(new javax.swing.SpinnerNumberModel(4, 3, 10, 1));
-        jChromosomeLenght.setModel(new javax.swing.SpinnerNumberModel(40, 8, 120, 1));
+        jPuzzleSize.setModel(new javax.swing.SpinnerNumberModel(4, 3, 8, 1));
+        jChromosomeLenght.setModel(new javax.swing.SpinnerNumberModel(40, 8, 80, 1));
         jIterations.setModel(new javax.swing.SpinnerNumberModel(500, 10, 1000000000, 1));
-        jPopulationSize.setModel(new javax.swing.SpinnerNumberModel(200, 8, 1000, 1));
+        jPopulationSize.setModel(new javax.swing.SpinnerNumberModel(200, 8, 500, 1));
         jCrossoverRate.setModel(new javax.swing.SpinnerNumberModel(0.2, 0, 1, 0.1));
         jMutationRate.setModel(new javax.swing.SpinnerNumberModel(0.6, 0, 1, 0.1));
-        jPuzzleMixNum.setModel(new javax.swing.SpinnerNumberModel(30, 5, 120, 1));
+        jPuzzleMixNum.setModel(new javax.swing.SpinnerNumberModel(30, 5, 60, 1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

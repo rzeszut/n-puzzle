@@ -25,7 +25,8 @@ public class TestFitnessFunction implements FitnessFunction {
     @Override
     public double calculateFitness(List<Integer> genes) {
         NPuzzle temp = Decoder.applyGenes(beginning_state, genes);
-        return 36 / (double) temp.countMisplacedTiles(goal_state) + 18
+        int dimension = beginning_state.getDimension();
+        return 18 / (double) temp.countMisplacedTiles(goal_state) + 6 * dimension
                 / (double) temp.calculateManhattanDistance(goal_state);
     }
 
