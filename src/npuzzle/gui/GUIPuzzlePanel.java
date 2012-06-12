@@ -6,10 +6,11 @@ package npuzzle.gui;
 
 import geneticalgorithm.Chromosome;
 import geneticalgorithm.Configuration;
-import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JTextField;
-import npuzzle.*;
+import npuzzle.Coords;
+import npuzzle.Decoder;
+import npuzzle.NPuzzle;
 
 /**
  *

@@ -4,11 +4,11 @@
  */
 package npuzzle.gui;
 
-import info.monitorenter.gui.chart.*;
+import info.monitorenter.gui.chart.Chart2D;
+import info.monitorenter.gui.chart.ITrace2D;
 import info.monitorenter.gui.chart.traces.Trace2DLtd;
 import info.monitorenter.gui.chart.traces.Trace2DSimple;
 import java.awt.Color;
-import java.util.Iterator;
 
 /**
  *

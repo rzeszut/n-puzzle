@@ -4,7 +4,8 @@
  */
 package npuzzle.gui;
 
-import geneticalgorithm.*;
+import geneticalgorithm.Chromosome;
+import geneticalgorithm.Observer;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;

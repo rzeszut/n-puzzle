@@ -7,7 +7,6 @@ package npuzzle.gui;
 import geneticalgorithm.Chromosome;
 import geneticalgorithm.Configuration;
 import geneticalgorithm.GeneticAlgorithm;
-import java.util.List;
 import npuzzle.NPuzzle;
 
 /**
