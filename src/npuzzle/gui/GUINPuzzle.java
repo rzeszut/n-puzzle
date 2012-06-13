@@ -162,7 +162,7 @@ public class GUINPuzzle extends javax.swing.JFrame {
         jChromosomeLenght.setModel(new javax.swing.SpinnerNumberModel(40, 8, 80, 1));
         jIterations.setModel(new javax.swing.SpinnerNumberModel(50000, 10, 1000000000, 1));
         jPopulationSize.setModel(new javax.swing.SpinnerNumberModel(200, 8, 500, 1));
-        jCrossoverRate.setModel(new javax.swing.SpinnerNumberModel(0.2, 0, 1, 0.1));
+        jCrossoverRate.setModel(new javax.swing.SpinnerNumberModel(0.3, 0, 1, 0.1));
         jMutationRate.setModel(new javax.swing.SpinnerNumberModel(0.7, 0, 1, 0.1));
         jPuzzleMixNum.setModel(new javax.swing.SpinnerNumberModel(30, 5, 60, 1));
 
